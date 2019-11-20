@@ -15,28 +15,19 @@ var i = 0;
   };
 
    someInstance.dequeue = function() {
-    var temp;
-   var objLength = Object.keys(storage).length
-   var deleted = storage[0]
-    delete storage[0]
-    i--;
-      if (storage[0] === undefined) { 
-        for(var key in storage){
-          temp = storage[key] 
-          delete storage[key]
-        }
-       
-    return deleted;
-  //    return storage[1]
+  var temp = storage[0];
+  delete storage[0];
+   for (var k = 0; k < i; k++) {
+        storage[k] = storage[k+1];
     }
+    if(i > 0){
+      i--
+    }
+    return temp
   };
 
   someInstance.size = function() {
-    var count = 0;
-    for(var key in storage) {
-      count++
-    }
-    return count;
+    return i;
 
   };
 

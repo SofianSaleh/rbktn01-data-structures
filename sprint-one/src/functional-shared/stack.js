@@ -1,33 +1,32 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  var data = {};
+        var stack = {
+        storage: {},
+        };
 
-  _.extend(data, stackMethods)
-  return data;
+    stack = _.extend(stack, stackMethods);
+    return stack;
 };
-var i = 0
+
+//extend methods to our stack object 
+
 var stackMethods = {
-  
-  push: function (value) {
-    this.data[i] = value;
-      console.log(this.data)
-      i++;
-  console.log(this.data)
-  },
-  pop: function () {
-     var deleted =  this.data[Object.keys(this.data).length - 1];
-    delete data[Object.keys(this.data).length - 1];
-    i--;
-    return deleted;
-  },
-  size: function () {
-  var  counter = 0;
-    for(var key in this.data){
-      counter++;
+
+    push: function(value) {
+        this.storage[value] = value;
+    },
+
+    pop: function() {
+      var returned = this.storage[Object.keys(this.storage).length - 1]
+      delete this.storage[Object.keys(this.storage).length - 1]
+      return returned
+        
+    },
+    
+    size: function() {
+      console.log(this.storage)
+      return Object.keys(this.storage).length
+        // return this.length;
     }
-  return counter;
-  }
-}
-
-
+};
