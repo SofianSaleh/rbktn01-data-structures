@@ -7,7 +7,7 @@ var i = 0;
   // Implement the methods below
   someInstance.push = function(value) {
       storage[i] = value;
-      console.log(storage)
+    
       i++;
   };
 
