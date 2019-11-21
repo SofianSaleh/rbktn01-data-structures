@@ -14,6 +14,7 @@ class Stack {
     this.length--;
     var trash = this.storage[this.length];
     delete this.storage[this.length];
+    console.log(this.storage)
     return trash;
   }
   }
