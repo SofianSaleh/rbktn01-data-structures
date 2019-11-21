@@ -16,6 +16,7 @@ var LinkedList = function() {
 
     this.tail.next = node;
     this.tail = node;
+    // O(1)
   };
 
   list.removeHead = function() {
@@ -29,6 +30,7 @@ var LinkedList = function() {
     }
 
     return removed
+    // O(1)
   };
 
   list.contains = function(target) {
@@ -42,6 +44,7 @@ var LinkedList = function() {
   };
 
   return list;
+  // O(n)
 };
 
 var Node = function(value) {
