@@ -3,15 +3,15 @@ var Stack = function() {
   
   var obj ={}
   obj.storage = {}
-  extend(obj, stackMethods)
+  _.extend(obj, stackMethods)
   return obj;
 };
 
-var extend = function(obj, methods) {
-  for(var key in methods){
-    obj[key] = methods[key]
-  }
-}
+// var extend = function(obj, methods) {
+//   for(var key in methods){
+//     obj[key] = methods[key]
+//   }
+// }
 
 
 var stackMethods  = {
