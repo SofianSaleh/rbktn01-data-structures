@@ -14,29 +14,28 @@ treeMethods.addChild = function(value) {
 
 };
 
-treeMethods.contains = function(target, child) {
-	for (var i = 0; i < this.children.length; i++) {
+treeMethods.contains = function(target) {
 	
-	 for(var key in this.children) {
-	 	if(this.children[i].value === target) {
-	 		return true;
-	 	}
-	 }
-	for(var j = 0; j < this.children[i].length; j++){
-		console.log(this.children[i].children[j].value)
-	
-		 for(var keys in this.children[i][j]){
-
-			if(this.children[i].children[j].value === target){
-				return true
-			}
+	function search(main) {
+		var truthyValues = false
+	console.log(main.value)
+		if(main.value === target) {
+			return true;
 		}
+		if(main.children.length === 0) {
+			return false;
+		}
+		_.each(main.children, function(one) {
+			if(search(one)) {
+				truthyValues = true
+			}
+		})
+		return truthyValues
 	}
-	}
-	var i = 0
-	return false
+	return search(this)
+
 }
-//
+
 
 /*
  * Complexity: What is the time complexity of the above functions?
