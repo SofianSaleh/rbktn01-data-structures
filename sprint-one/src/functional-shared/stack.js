@@ -19,7 +19,7 @@ push : function(value){
   this.storage[value] = value;
 },
 size : function() {
-  return Object.keys(this.storage).length
+  return Object.keys(this.storage).length;
 
 
 },
@@ -27,7 +27,8 @@ pop : function(){
   if (Object.keys(this.storage).length === 0) {
       return 0
     }
-    var count = 0 , tmp;
+    var count = 0 
+    var tmp;
     for(var key in this.storage){
       count++;
       if (count === Object.keys(this.storage).length ) {
