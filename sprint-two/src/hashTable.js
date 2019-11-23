@@ -15,7 +15,8 @@ HashTable.prototype.insert = function(k, v) {
  // }
  // 	console.log(this._limit)
   if(!this._storage.get(index)){
-    this._storage.set(index, []);
+    var arr = []
+    this._storage.set(index, arr);
   }
 // Check if the key exists if true  then go to else
   if(!this.retrieve(k)){
@@ -23,7 +24,7 @@ HashTable.prototype.insert = function(k, v) {
     this._storage.get(index).push([k, v])
   }else{
   var helper = this._storage.get(index);
-    for(var i in helper){
+    for(var i = 0; i < helper.length; i++){
       if(helper[i][0]===k)
         helper[i][1] = v;
       }
@@ -34,7 +35,7 @@ HashTable.prototype.insert = function(k, v) {
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var helper = this._storage.get(index);
-  for(var i in helper) {
+  for(var i = 0; i < helper.length; i++){
    	//console.log(helper[i])
   	if(helper[i][0] === k){
   		return helper[i][1]
@@ -49,7 +50,7 @@ HashTable.prototype.remove = function(k) {
  // if (this._storage.storage.length < this._limit - 1) {
  // 	this._limit = 8;
  // }
-	for(var i  in helper){
+	for(var i = 0; i < helper.length; i++){
   	if(helper[i][0] === k){
   		helper.splice(i,1)
 	}
