@@ -13,10 +13,10 @@
 
 var LimitedArray = function(limit) {
   var storage = [];
-
   var limitedArray = {};
   limitedArray.get = function(index) {
     checkLimit(index);
+
     return storage[index];
   };
   limitedArray.set = function(index, value) {
@@ -37,7 +37,8 @@ var LimitedArray = function(limit) {
       throw new Error('Error trying to access an over-the-limit index');
     }
   };
-
+    limitedArray.storage = storage;
+    //console.log(limitedArray.storage)
   return limitedArray;
 };
 
@@ -46,6 +47,7 @@ var LimitedArray = function(limit) {
 // numbers 0 and `max`
 var getIndexBelowMaxForKey = function(str, max) {
   var hash = 0;
+ // console.log(str)
   for (var i = 0; i < str.length; i++) {
     hash = (hash << 5) + hash + str.charCodeAt(i);
     hash = hash & hash; // Convert to 32bit integer
