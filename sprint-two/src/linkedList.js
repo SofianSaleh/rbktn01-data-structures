@@ -16,31 +16,32 @@ var LinkedList = function() {
 
     this.tail.next = node;
     this.tail = node;
-    // O(1)
+    
   };
+
 
   list.removeHead = function() {
     var removed = this.head.value
 
-    delete this.head.value
-    
-    if(this.head.value === undefined){
-      this.head.value = this.tail.value
-     
-    }
-
+   this.head = this.head.next;
+   
     return removed
-    // O(1)
   };
 
-  list.contains = function(target) {
+  
 
-    for(var key in this.head) {
-      if(target === this.head.value || target === this.head.next.value) {
-        return true
-      }
-        return false
+  list.contains = function(target) {
+    
+    var node = arguments.length === 2? arguments[1] : this.head
+    // console.log(arguments[1])
+    if(node){
+    if(node.value === target) return true;
+    else {
+    return this.contains(target, node.next)
     }
+  }
+    return false
+
   };
 
   return list;
