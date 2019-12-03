@@ -37,4 +37,13 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+  it('should rebalance each time it\'s out of balance', function() {
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    expect(binarySearchTree.value).to.equal(3);
+    expect(binarySearchTree.right.value).to.equal(5);
+    expect(binarySearchTree.left.value).to.equal(2);
+
+  });
+
 });

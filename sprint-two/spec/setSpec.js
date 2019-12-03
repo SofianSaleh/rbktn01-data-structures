@@ -23,5 +23,16 @@ describe('set', function() {
     set.remove('Mel Gibson');
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
+  it('should accept input objects', function() {
+    set.add([1,2,3,4]);
+    expect(set.contains([1,2,3,4])).to.equal(true);
+    set.remove([1,2,3,4]);
+    expect(set.contains([1,2,3,4])).to.equal(false);
+    set.add({name : "sofian", age : 21});
+    expect(set.contains({name : "sofian", age : 21})).to.equal(true);
+    set.remove({name : "sofian", age : 21});
+    expect(set.contains({name : "sofian", age : 21})).to.equal(false);
+
+  });
 
 });
